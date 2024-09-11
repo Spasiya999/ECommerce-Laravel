@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> E Com | Dashboard</title>
-  
+
   @include('admin.libraries.style')
 
 </head>
@@ -25,13 +25,13 @@
 
 
   <div class="content-wrapper">
-    
+    @include('admin.common.alert')
     @yield('content')
 
     <!-- /.content -->
   </div>
 
-  
+
 
 
   @include('admin.components.footer')
@@ -46,6 +46,8 @@
 
 
 @include('admin.libraries.script')
+
+@yield('scripts')
 
 </body>
 </html>
