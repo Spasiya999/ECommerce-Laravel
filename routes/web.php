@@ -52,18 +52,7 @@ Route::get('/shop', function () {
 });
 
 Route::get('/login', function () {
-    return view('store.pages.login');
+    return view('store.pages.login')->name('login');
 });
 
-
-Route::get('/admin/dashboard', function () {
-    return view('admin.pages.dashboard');
-});
-
-Route::get('/admin/login', function () {
-    return view('admin.pages.login');
-});
-
-Route::get('/admin', function () {
-    return view('admin.pages.dashboard');
-});
+Auth::routes();
