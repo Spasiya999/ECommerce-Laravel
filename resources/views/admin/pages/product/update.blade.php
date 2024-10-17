@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="font-weight-bold">Update Product</h5>
             </div>
-            <form action="{{ route('admin.product.update') }}" method="POST">
+            <form action="{{ route('admin.product.update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="text" hidden name="id" value="{{ $product->id }}">
                 <div class="row">
@@ -30,13 +30,15 @@
                     <div class="col-lg-6 col-12">
                         <div class="mb-3">
                             <label for="base_price" class="form-label">Base Price</label>
-                            <input type="text" class="form-control" id="base_price" name="base_price" value="{{ $product->base_price }}">
+                            <input type="text" class="form-control" id="base_price" name="base_price"
+                                value="{{ $product->base_price }}">
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="mb-3">
                             <label for="quantity" class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity" value="{{ $product->quantity }}">
+                            <input type="text" class="form-control" id="quantity" name="quantity"
+                                value="{{ $product->quantity }}">
                         </div>
                     </div>
                 </div>
@@ -51,6 +53,15 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                            @if ($product->productImages[0] != null)
+                                <img src="{{ asset($product->productImages[0]->image) }}" width="100" alt="">
+                            @endif
+                        </div>
+                    </div>
                     <div class="col-lg-4 col-12">
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Parent product</label>

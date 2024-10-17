@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h5 class="font-weight-bold">Create Product</h5>
             </div>
-            <form action="{{ route('admin.product.create') }}" method="POST">
+            <form action="{{ route('admin.product.create') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-12">
@@ -47,6 +47,12 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                    </div>
                     <div class="col-lg-4 col-12">
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Category</label>
