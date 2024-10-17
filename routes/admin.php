@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/login', [LoginController::class, 'loadLoginPage'])->name('login');
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::post('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
     Route::get('/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
 
