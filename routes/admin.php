@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController\CategoryController;
 use App\Http\Controllers\Admin\HomeContoller\HomeController;
 use App\Http\Controllers\Admin\ProductController\ProductController;
+use App\Http\Controllers\Admin\VariantsController\VariantsController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,5 +41,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/product/create/store', [ProductController::class, 'create'])->name('admin.product.create');
     Route::get('/product/edit/{id}', [ProductController::class, 'editUI'])->name('admin.product.editUI');
     Route::post('/product/edit/update', [ProductController::class, 'update'])->name('admin.product.update');
-    Route::get('/product/delete/{id}', [ProductController::class, 'destroy'])->name('admin.product.delete');
+    Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('admin.product.delete');
+
+    // Variant Types
+    Route::get('/variant-types', [VariantsController::class, 'index'])->name('admin.variant.index');
+    Route::post('/variant-types/store', [VariantsController::class, 'store'])->name('admin.variant.store');
+    Route::post('/variant-types/update', [VariantsController::class, 'update'])->name('admin.variant.update');
+    Route::get('/variant-types/delete', [VariantsController::class, 'delete'])->name('admin.variant.delete');
+
+    // Product Variants
+    Route::get('/product/variants', [ProductController::class, 'index'])->name('admin.product.variants');
 });
